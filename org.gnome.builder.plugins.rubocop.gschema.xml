@@ -1,0 +1,9 @@
+<schemalist>
+  <schema id="org.gnome.builder.plugins.rubocop" path="/org/gnome/builder/plugins/rubocop/" gettext-domain="gnome-builder">
+    <key name="enable-rubocop" type="b">
+      <default>true</default>
+      <summary>Enable Rubocop</summary>
+      <description>Enable the use of Rubocop to find additional diagnostics in ruby files.</description>
+    </key>
+  </schema>
+</schemalist>
