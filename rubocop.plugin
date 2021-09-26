@@ -8,4 +8,4 @@ Module=rubocop_plugin
 Name=rubocop
 X-Diagnostic-Provider-Languages-Priority=100
 X-Diagnostic-Provider-Languages=ruby
-X-Builder-ABI=3.40
+X-Builder-ABI=41.0
