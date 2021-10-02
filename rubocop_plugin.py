@@ -119,7 +119,11 @@ class RubocopDiagnosticProvider(Ide.Object, Ide.DiagnosticProvider):
                     end = None
                     if 'last_line' in location:
                         end_line = max(location['last_line'] - 1, 0)
-                        end_col = max(location['last_column'] - 1, 0)
+                        end_col = max(location['last_column'], 0)
+                        end = Ide.Location.new(file, end_line, end_col)
+                    elif 'length' in location:
+                        end_line = start_line
+                        end_col = start_col + location['length']
                         end = Ide.Location.new(file, end_line, end_col)
 
                     message = offense['message']
