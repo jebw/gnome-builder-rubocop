@@ -118,7 +118,11 @@ class RubocopDiagnosticProvider(Ide.Object, Ide.DiagnosticProvider):
                         end_col = start_col + location['length']
                         end = Ide.Location.new(file, end_line, end_col)
 
-                    message = offense['message']
+                    if file_content:
+                        message = offense['cop_name'] + ': ' + offense['message']
+                    else:
+                        message = offense['message'] # Already prefixed when not --stdin
+
                     severity = SEVERITY_MAP[offense['severity']]
                     diagnostic = Ide.Diagnostic.new(severity, message, start)
                     if end is not None:
