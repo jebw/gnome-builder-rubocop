@@ -3,7 +3,7 @@
     <key name="enable-rubocop" type="b">
       <default>true</default>
       <summary>Enable Rubocop</summary>
-      <description>Enable the use of Rubocop to find additional diagnostics in ruby files.</description>
+      <description>Enable the use of Rubocop to find additional diagnostics in Ruby files. This may result in the execution of code in your project.</description>
     </key>
   </schema>
 </schemalist>

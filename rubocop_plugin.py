@@ -153,9 +153,9 @@ class RubocopPreferencesAddin(GObject.Object, Ide.PreferencesAddin):
                                               None,
                                               "false",
                                               _("Rubocop"),
-                                              _("Enable the use of Rubocop to provide linting for Ruby files"),
+                                              _("Enable the use of Rubocop, which may execute code in your project"),
                                               # translators: these are keywords used to search for preferences
-                                              _("ruby rubocop lint code"),
+                                              _("ruby rubocop lint code execute execution"),
                                               500)
 
     def do_unload(self, preferences):
