@@ -43,14 +43,6 @@ SEVERITY_MAP = {
 }
 
 class RubocopDiagnosticProvider(Ide.Object, Ide.DiagnosticProvider):
-    @staticmethod
-    def _get_rubocop(srcdir):
-        gemfile_path = os.path.join(srcdir, 'Gemfile')
-#        if os.path.exists(gemfile_path):
-#        return 'bundle exec rubocop'
-#        else:
-        return 'rubocop'  # Just rely on PATH
-
     def create_launcher(self):
         context = self.get_context()
         srcdir = context.ref_workdir().get_path()
@@ -85,12 +77,12 @@ class RubocopDiagnosticProvider(Ide.Object, Ide.DiagnosticProvider):
 
     def execute(self, task, launcher, srcdir, file, file_content):
         try:
-            launcher.push_args((self._get_rubocop(srcdir), '--format', 'json'))
+            launcher.push_args(('rubocop', '--format', 'json'))
+
             if file_content:
                 launcher.push_argv('--stdin')
-                launcher.push_argv(file.get_path())
-            else:
-                launcher.push_argv(file.get_path())
+
+            launcher.push_argv(file.get_path())
 
             sub_process = launcher.spawn()
             stdin = file_content.get_data().decode('UTF-8')
